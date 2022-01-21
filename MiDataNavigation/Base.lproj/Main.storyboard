@@ -100,6 +100,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Calcula la edad"/>
+                                <connections>
+                                    <action selector="calculaEdadPerroAction:" destination="U1L-cx-eyE" eventType="touchUpInside" id="Lca-fC-sL4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UHu-6w-oM2"/>
@@ -109,14 +112,17 @@
                     <navigationItem key="navigationItem" title="Ventana 2" id="NM7-9a-VJs">
                         <barButtonItem key="rightBarButtonItem" title="plus" image="plus" catalog="system" id="jC8-Cj-EUN">
                             <connections>
-                                <segue destination="xoL-Og-a7H" kind="show" id="gRL-EP-1xW"/>
+                                <segue destination="xoL-Og-a7H" kind="show" identifier="segueV3" id="gRL-EP-1xW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="edadPerroTF" destination="pKG-7R-UtI" id="wKo-Vr-4bN"/>
                         <outlet property="miApellidoLBL" destination="ydc-aL-v6K" id="dLz-ZE-c0n"/>
+                        <outlet property="miDireccionTF" destination="f6B-bN-sYL" id="aVV-Dl-bas"/>
                         <outlet property="miNombreLBL" destination="0CD-dU-kg9" id="yAC-t5-Ugd"/>
+                        <outlet property="miTelefonoTF" destination="tJ9-Sc-GqS" id="f71-WW-OEH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lel-xN-L5n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -163,19 +169,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefono" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fBy-S4-C7b">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Codigo postal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fBy-S4-C7b">
                                 <rect key="frame" x="40" y="313" width="334" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Direccion" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZgA-e6-0FL">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ciudad" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZgA-e6-0FL">
                                 <rect key="frame" x="40" y="374" width="334" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Calcula la edad del perro" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gnW-uO-Tlx">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mi posicion" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gnW-uO-Tlx">
                                 <rect key="frame" x="40" y="440" width="334" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -187,10 +193,10 @@
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Calcula la edad"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Ir a ventana 4"/>
                                 <connections>
                                     <action selector="calculaEdadPerroAction:" destination="g2d-27-1HV" eventType="touchUpInside" id="W7D-BH-zoI"/>
-                                    <segue destination="dSb-jM-sbq" kind="show" identifier="segueV3" id="LyZ-bx-DwO"/>
+                                    <segue destination="dSb-jM-sbq" kind="show" id="Nf7-27-q8e"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mi telefono" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soR-RM-CGS">
@@ -207,6 +213,14 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Ventana 3" id="EAB-uH-my6"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="miApellidoLBL" destination="HjX-CA-EDU" id="YYy-lt-Jvw"/>
+                        <outlet property="miCPTF" destination="fBy-S4-C7b" id="oS3-J3-PTc"/>
+                        <outlet property="miCiudadTF" destination="ZgA-e6-0FL" id="zSg-iq-YO3"/>
+                        <outlet property="miNomnbreLBL" destination="iVD-PG-c55" id="73g-Ap-sty"/>
+                        <outlet property="miPosicionTF" destination="gnW-uO-Tlx" id="9yY-9C-QYV"/>
+                        <outlet property="miTelefonoLBL" destination="soR-RM-CGS" id="HEo-NC-waQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ve6-c0-5Ft" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="g2d-27-1HV" userLabel="Exit" sceneMemberID="exit"/>
@@ -235,34 +249,54 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefono" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oo6-Xe-arG">
-                                <rect key="frame" x="40" y="313" width="334" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Direccion" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S0m-DC-qT8">
-                                <rect key="frame" x="40" y="374" width="334" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Calcula la edad del perro" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ckD-bb-Fv5">
-                                <rect key="frame" x="40" y="440" width="334" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQE-0i-BU0">
                                 <rect key="frame" x="40" y="578" width="334" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Calcula la edad"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Enviar mail"/>
+                                <connections>
+                                    <action selector="enviarInfoAction:" destination="dSb-jM-sbq" eventType="touchUpInside" id="Tl0-TA-nYW"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mi telefono" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sa2-cd-JCq">
                                 <rect key="frame" x="40" y="236" width="334" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ciudad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3S-ki-Gk3">
+                                <rect key="frame" x="40" y="278" width="334" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Codigo postal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUD-fQ-qgT">
+                                <rect key="frame" x="40" y="392" width="334" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Posicion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7z3-ZL-ubP">
+                                <rect key="frame" x="40" y="438" width="334" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edad perro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfy-rd-EaS">
+                                <rect key="frame" x="40" y="515" width="334" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Direccion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRH-x1-zfp">
+                                <rect key="frame" x="40" y="332" width="334" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -277,10 +311,20 @@
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="933-rz-19A"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="ciudadLBL" destination="Q3S-ki-Gk3" id="ht3-7B-v82"/>
+                        <outlet property="codigoPOstalLBL" destination="XUD-fQ-qgT" id="zPO-FN-oO8"/>
+                        <outlet property="edadPerroLBL" destination="jfy-rd-EaS" id="5rQ-Pf-tFX"/>
+                        <outlet property="miApellidoLBL" destination="wQb-bb-1L7" id="q9J-of-m4n"/>
+                        <outlet property="miDireccionLBL" destination="kRH-x1-zfp" id="3Jq-Iw-Jw1"/>
+                        <outlet property="miNombreLBL" destination="UOg-81-Beg" id="Avu-Na-Wth"/>
+                        <outlet property="miTelefonoLBL" destination="sa2-cd-JCq" id="NHH-HI-C5t"/>
+                        <outlet property="posicionGeoLBL" destination="7z3-ZL-ubP" id="Pir-C5-waS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ij4-5L-N9C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3051" y="80"/>
+            <point key="canvasLocation" x="3050.7246376811595" y="79.6875"/>
         </scene>
     </scenes>
     <resources>
