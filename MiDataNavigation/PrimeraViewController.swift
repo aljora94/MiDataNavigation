@@ -9,6 +9,11 @@ import UIKit
 
 class PrimeraViewController: UIViewController {
 
+    @IBOutlet weak var miNombreTF: UITextField!
+    @IBOutlet weak var miApellidoTF: UITextField!
+    
+    @IBAction func muestraSegundaVentanaAction(_ sender: Any) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,14 +21,20 @@ class PrimeraViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "segueV2"{
+            if !(self.miNombreTF.text?.isEmpty ?? false) && !(self.miApellidoTF.text?.isEmpty ?? false){
+                let ventana2VC = segue.destination as? SegundaViewController
+                ventana2VC?.datosUsuario.nombreData = self.miNombreTF.text
+                ventana2VC?.datosUsuario.apellidoData = self.miApellidoTF.text
+                
+            }else{
+                self.present(Utils.shared.showAlertVC(title: "Ojo", message: "Debes rellenar los campos"), animated: true, completion: nil)
+            }
+        }
     }
-    */
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
